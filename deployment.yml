@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kitchen-app
+  namespace: kitchen-ns
+  labels:
+    app: kitchen-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kitchen-app
+  template:
+    metadata:
+      labels:
+        app: kitchen-app
+    spec:
+      containers:
+      - name: kitchen-app
+        image: 373527787950.dkr.ecr.ap-south-1.amazonaws.com/sample-app
+        ports:
+        - containerPort: 80 
+
